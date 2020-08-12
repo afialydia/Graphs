@@ -41,22 +41,25 @@ def earliest_ancestor(ancestors, starting_node):
     
     q = Queue()
 
-    q.enqueue([starting_node])
+    q.enqueue([starting_node]) # <-   enqueue a path to starting node
 
-    visited = set()
+    visited = set() #<-  creating a set to store visited
 
-    earliest_ancestor = -1
+    earliest_ancestor = -1 #<-  no parents set to -1 initializing parents
 
     while q.size() > 0:
-        path = q.dequeue()
-        v = path[-1]
+        path = q.dequeue()#<-  gets the first path in the queue
+        v = path[-1]#<-  gets last node in the path
 
-        if v not in visited:
+
+        if v not in visited:#<- check if visited and if not do the following
             visited.add(v)
 
-            if((v < earliest_ancestor) or (len(path)>1)):
-                earliest_ancestor = v
-            for neighbor in g.get_neighbors(v):
+            if((v < earliest_ancestor) or (len(path)>1)): #<-checks if path(v) is less than parent meaning if there was no path it would be the parent or length is longer than 1
+                earliest_ancestor = v #sets ancestor
+
+            for neighbor in g.get_neighbors(v): #  copy's path and enqueues to all its neighbors
+
                 copy = path.copy()
                 copy.append(neighbor)
                 q.enqueue(copy)
