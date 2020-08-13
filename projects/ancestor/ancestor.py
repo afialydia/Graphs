@@ -34,7 +34,7 @@ class Graph:
 
 def earliest_ancestor(ancestors, starting_node):
     g = Graph()
-    for pair in ancestors:
+    for pair in ancestors: #< instead of for pair do for parent , child for more readability of code
         g.add_vertex(pair[0])
         g.add_vertex(pair[1])
         g.add_edge(pair[1],pair[0])
