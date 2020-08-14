@@ -1,20 +1,31 @@
 from room import Room
 from player import Player
 from world import World
+import os
+dirpath = os.path.dirname(os.path.abspath(__file__))
 
 import random
 from ast import literal_eval
+
+###Understand
+# Write an algorithm that picks a random unexplored direction from the player's current room, 
+# travels and logs that direction, 
+# then loops, maybe try recurssion here?
+# This should cause your player to walk a DFT. When you reach a dead-end (i.e. a room with no unexplored paths), walk back to the nearest room that does contain an unexplored path.
+
+
+
 
 # Load world
 world = World()
 
 
 # You may uncomment the smaller graphs for development and testing purposes.
-# map_file = "maps/test_line.txt"
-# map_file = "maps/test_cross.txt"
-# map_file = "maps/test_loop.txt"
-# map_file = "maps/test_loop_fork.txt"
-map_file = "maps/main_maze.txt"
+# map_file = dirpath + "maps/test_line.txt"
+# map_file = dirpath + "maps/test_cross.txt"
+# map_file = dirpath + "maps/test_loop.txt"
+# map_file = dirpath + "maps/test_loop_fork.txt"
+map_file = dirpath + "/maps/main_maze.txt"
 
 # Loads the map into a dictionary
 room_graph=literal_eval(open(map_file, "r").read())
