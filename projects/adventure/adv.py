@@ -12,7 +12,7 @@ from ast import literal_eval
 # travels and logs that direction, 
 # then loops, maybe try recurssion here?
 # This should cause your player to walk a DFT. When you reach a dead-end (i.e. a room with no unexplored paths), walk back to the nearest room that does contain an unexplored path.
-
+ 
 
 
 
